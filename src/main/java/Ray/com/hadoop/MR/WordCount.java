@@ -20,7 +20,7 @@ import java.util.Iterator;
 public class WordCount extends Configured implements Tool {
 
     public static class wordMap extends MapReduceBase implements Mapper<LongWritable, Text, Text, LongWritable> {
-        private LongWritable one = new LongWritable(1l);
+        private LongWritable one = new LongWritable(1L);
 
         public void map(LongWritable key, Text value, OutputCollector<Text, LongWritable> output, Reporter reporter) throws IOException {
             String lines = value.toString().replaceAll("[\":,.\\[\\]'”/\\\\—“]", " ");
@@ -37,7 +37,7 @@ public class WordCount extends Configured implements Tool {
     public static class countReduce extends MapReduceBase implements Reducer<Text, LongWritable, Text, LongWritable> {
 
         public void reduce(Text key, Iterator<LongWritable> values, OutputCollector<Text, LongWritable> output, Reporter reporter) throws IOException {
-            long count = 0l;
+            long count = 0L;
             while (values.hasNext()) {
                 count += values.next().get();
             }
@@ -73,7 +73,7 @@ public class WordCount extends Configured implements Tool {
 
     public static void main(String[] s) throws Exception {
 
-        String[] args = {"data/hadoop/mr/wordcount", "res/hadoop/mr/wordcount/1"};
+        String[] args = {"data/hadoop/mr/wordCount", "res/hadoop/mr/wordCount/1"};
 
         if (args.length != 2) {
             throw new Exception("args: input directory output directory");
