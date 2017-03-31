@@ -1,4 +1,4 @@
-package Ray.com.hadoop.MR;
+package Ray.hadoop.MR;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;

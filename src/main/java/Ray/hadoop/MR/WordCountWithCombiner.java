@@ -1,4 +1,4 @@
-package Ray.com.hadoop.MR;
+package Ray.hadoop.MR;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
@@ -13,17 +13,17 @@ import java.io.IOException;
 import java.util.Iterator;
 
 /**
- * Created by ray on 17/3/29.
+ * Created by ray on 17/3/30.
  * <p>
- * word count example
+ * word count by using combiner function
  */
-public class WordCount extends Configured implements Tool {
+public class WordCountWithCombiner extends Configured implements Tool {
 
-    public static class wordMap extends MapReduceBase implements Mapper<LongWritable, Text, Text, LongWritable> {
+    public static class WordMap extends MapReduceBase implements Mapper<LongWritable, Text, Text, LongWritable> {
         private LongWritable one = new LongWritable(1L);
 
         public void map(LongWritable key, Text value, OutputCollector<Text, LongWritable> output, Reporter reporter) throws IOException {
-            String lines = value.toString().replaceAll("[\":,.\\[\\]'”/\\\\—“]", " ");
+            String lines = value.toString().replaceAll("[\"—+:,.\\[\\]'’‘”\\-“/\\\\\\(\\)¨?;!&*]", " ");
             String[] words = lines.split("\\s+");
 
             for (String word : words) {
@@ -34,7 +34,8 @@ public class WordCount extends Configured implements Tool {
         }
     }
 
-    public static class countReduce extends MapReduceBase implements Reducer<Text, LongWritable, Text, LongWritable> {
+
+    public static class CountReduce extends MapReduceBase implements Reducer<Text, LongWritable, Text, LongWritable> {
 
         public void reduce(Text key, Iterator<LongWritable> values, OutputCollector<Text, LongWritable> output, Reporter reporter) throws IOException {
             long count = 0L;
@@ -53,12 +54,14 @@ public class WordCount extends Configured implements Tool {
         Path input = new Path(args[0].trim());
         Path output = new Path(args[1].trim());
 
-        JobConf conf = new JobConf(getConf(), WordCount.class);
+        JobConf conf = new JobConf(getConf(), WordCountWithCombiner.class);
 
-        conf.setJobName("word count");
-        conf.setJarByClass(WordCount.class);
-        conf.setMapperClass(wordMap.class);
-        conf.setReducerClass(countReduce.class);
+        conf.setJobName("word count with combiner");
+        conf.setJarByClass(WordCountWithCombiner.class);
+        conf.setMapperClass(WordMap.class);
+        conf.setCombinerClass(CountReduce.class);
+        conf.setReducerClass(CountReduce.class);
+
         conf.setMapOutputKeyClass(Text.class);
         conf.setMapOutputValueClass(LongWritable.class);
         conf.setOutputFormat(TextOutputFormat.class);
@@ -79,7 +82,7 @@ public class WordCount extends Configured implements Tool {
             throw new Exception("args: input directory output directory");
         }
 
-        int exitCode = ToolRunner.run(new Configuration(), new WordCount(), args);
+        int exitCode = ToolRunner.run(new Configuration(), new WordCountWithCombiner(), args);
 
         System.out.println("exit code :" + exitCode);
     }
