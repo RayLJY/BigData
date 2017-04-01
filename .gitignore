@@ -4,3 +4,4 @@ target/
 data/
 .gitignore
 src/main/java/org/
+src/test/
