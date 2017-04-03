@@ -96,7 +96,7 @@ public class MRSortByChar extends Configured implements Tool {
 
     public static void main(String[] s) throws Exception {
 
-        String[] args = {"data/hadoop/mr/sort", "res/hadoop/mr/sort/1"};
+        String[] args = {"data/hadoop/mr/sort/s0", "res/hadoop/mr/sort/s/2"};
 
         if (args.length != 2) {
             throw new Exception("args: input directory output directory");
