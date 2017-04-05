@@ -61,7 +61,7 @@ class KeyLineRecordReader extends RecordReader<IntWritable, Text> {
         if (line == null)
             return false;
         if (key == null) {
-            key = new IntWritable();
+            key = new IntWritable() ;
         }
         if (value == null) {
             value = new Text();
