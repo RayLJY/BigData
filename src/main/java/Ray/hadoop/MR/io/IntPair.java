@@ -10,7 +10,7 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 /**
- * Created by ray on 17/4/1.
+ * Created by Ray on 17/4/1.
  * This class copy from {@link SecondarySort}.
  * Define a pair of integers that are writable.
  * They are serialized in a byte comparable format.

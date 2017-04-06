@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 /**
- * Created by ray on 17/4/1.
+ * Created by Ray on 17/4/1.
  * <p>
  * This class copy from {@link org.apache.hadoop.examples.SecondarySort}.
  */

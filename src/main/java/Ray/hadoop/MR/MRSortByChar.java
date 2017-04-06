@@ -24,7 +24,7 @@ import org.apache.hadoop.util.ToolRunner;
 import java.net.URI;
 
 /**
- * Created by ray on 17/3/30.
+ * Created by Ray on 17/3/30.
  * <p>
  * total sort by characters type
  */

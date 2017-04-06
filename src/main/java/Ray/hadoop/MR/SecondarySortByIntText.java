@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 /**
- * Created by ray on 17/4/1.
+ * Created by Ray on 17/4/1.
  * <p>
  * This class be used for secondary sort that is grouped by Int type
  * and sorted by character type.

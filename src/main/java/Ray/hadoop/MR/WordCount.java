@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 /**
- * Created by ray on 17/3/29.
+ * Created by Ray on 17/3/29.
  * <p>
  * word count example
  */

@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 /**
- * Created by ray on 17/4/1.
+ * Created by Ray on 17/4/1.
  * <p>
  * This class like {@link KeyValueTextInputFormat}. I use {@link IntWritable} type
  * as Key type, not {@link Text} type in order to sorting by number. And there
