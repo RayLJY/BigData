@@ -91,6 +91,10 @@ public class MRSortByNum extends Configured implements Tool {
         URI partitionUri = new URI(partitionFile.toString() + "#" + "_sortPartitioning");
         job.addCacheFile(partitionUri);
 
+        if (fs.deleteOnExit(partitionFile)) {
+            System.out.println("delete partition File : " + partitionFile.toString());
+        }
+
         return job.waitForCompletion(true) ? 0 : 1;
     }
 
