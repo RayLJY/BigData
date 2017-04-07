@@ -1,14 +1,11 @@
 package Ray.hadoop.MR;
 
-import Ray.hadoop.MR.InputFormat.KeyLineInputFormat;
 import Ray.hadoop.MR.comparator.CharacterComparator;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.io.WritableComparator;
 import org.apache.hadoop.mapred.ClusterStatus;
 import org.apache.hadoop.mapred.JobClient;
@@ -29,6 +26,7 @@ import java.io.IOException;
 /**
  * Created by Ray on 17/4/3.
  * Copy from {@link org.apache.hadoop.examples.Join}.
+ * Join files have been sorted in same order.
  */
 public class RecordReaderJoin extends Configured implements Tool {
     public static final String REDUCES_PER_HOST = "mapreduce.join.reduces_per_host";
@@ -94,7 +92,8 @@ public class RecordReaderJoin extends Configured implements Tool {
 
         job.setOutputKeyClass(Text.class);
         //job.setOutputKeyClass(IntWritable.class);
-        job.setOutputValueClass(Text.class);
+        //job.setOutputValueClass(Text.class);
+        job.setOutputValueClass(TupleWritable.class);
 
         job.setOutputFormatClass(TextOutputFormat.class);
 
