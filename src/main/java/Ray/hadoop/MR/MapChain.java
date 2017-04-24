@@ -25,7 +25,7 @@ public class MapChain extends Configured implements Tool {
         private static LongWritable one = new LongWritable(1L);
 
         public void map(LongWritable key, Text value, OutputCollector<Text, LongWritable> output, Reporter reporter) throws IOException {
-            String lines = value.toString().replaceAll("[\":,.\\[\\]'”/\\\\—“]", " ");
+            String lines = value.toString().replaceAll("[^a-zA-Z0-9]", " ");
             String[] words = lines.split("\\s+");
 
             for (String word : words) {
