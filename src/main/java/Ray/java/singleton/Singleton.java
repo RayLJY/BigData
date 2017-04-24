@@ -39,19 +39,16 @@ public class Singleton {
 
 
         /* 并发性验证 */
-        ThreadPoolExecutor thread = new ThreadPoolExecutor(3, 10, 1, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(2));
+        ThreadPoolExecutor thread = new ThreadPoolExecutor(3, 10, 1, TimeUnit.SECONDS, new ArrayBlockingQueue<>(2));
 
         for (int i = 0; i < 3; i++) {
-            thread.execute(new Runnable() {
-                @Override
-                public void run() {
-//                    long nano = Singleton1.getInstance().getNano();
-//                    long nano = Singleton2.getInstance().getNano();
-//                    long nano = Singleton3.getInstance().getNano();
-//                    long nano = Singleton4.getInstance().getNano();
-                    long nano = Singleton5.INSTANCE.getNano();
-                    System.out.println(nano);
-                }
+            thread.execute(() -> {
+//                long nano = Singleton1.getInstance().getNano();
+//                long nano = Singleton2.getInstance().getNano();
+//                long nano = Singleton3.getInstance().getNano();
+//                long nano = Singleton4.getInstance().getNano();
+                long nano = Singleton5.INSTANCE.getNano();
+                System.out.println(nano);
             });
         }
         thread.shutdown();
