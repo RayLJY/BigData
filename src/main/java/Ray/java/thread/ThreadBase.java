@@ -41,3 +41,24 @@ public class ThreadBase {
 
     }
 }
+
+
+/**
+ * Thread State:
+ *
+ *                                            在 JVM 中运行
+ *                                                 或
+ *                                       等待操作系统的某些资源,如cup等
+ *
+ *          new ---------------------------->    runnable    ----------------------------> terminated
+ *
+ *       只有线程对象                 1.sheep(1) wait(1) join(1)进入 timed_waiting,             完成/异常
+ *   没有线程运行所需的资源               超时 notify notifyAll进入runnable.
+ *
+ *                                  2.wait() join() 进入 waiting,
+ *                                    notify notifyAll 进入 runnable.
+ *
+ *                                  3.synchronized 进入block,
+ *                                    获得'锁',进入runnable.
+ *
+ */
