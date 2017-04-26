@@ -36,31 +36,33 @@ public class ThreadPriority {
         y.start();
 
     }
-}
 
-class CThread extends Thread {
-    @Override
-    public void run() {
-        int n = 0;
-        Thread t = Thread.currentThread();
-        while (n < 5)
-            System.out.println(t.getName() + "  " + t.getPriority() + "  print  " + n++);
+    static class CThread extends Thread {
+        @Override
+        public void run() {
+            int n = 0;
+            Thread t = Thread.currentThread();
+            while (n < 5)
+                System.out.println(t.getName() + "  " + t.getPriority() + "  print  " + n++);
+        }
     }
-}
 
-class DThread extends Thread {
+    static class DThread extends Thread {
 
-    @Override
-    public void run() {
-        int n = 0;
-        Thread t = Thread.currentThread();
-        while (n < 5) {
-            try {
-                Thread.sleep(5);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        @Override
+        public void run() {
+            int n = 0;
+            Thread t = Thread.currentThread();
+            while (n < 5) {
+                try {
+                    Thread.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(t.getName() + "  " + t.getPriority() + "  print  " + n++);
             }
-            System.out.println(t.getName() + "  " + t.getPriority() + "  print  " + n++);
         }
     }
 }
+
+
