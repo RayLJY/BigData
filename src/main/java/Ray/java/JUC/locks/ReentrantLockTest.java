@@ -24,12 +24,12 @@ public class ReentrantLockTest {
 
 class Basket {
 
-    private final static int capacity = 50;
+    private final int capacity = 50;
     private int size = 0;
 
-    private ReentrantLock lock = new ReentrantLock();
-    private Condition empty = lock.newCondition();
-    private Condition full = lock.newCondition();
+    private final ReentrantLock lock = new ReentrantLock();
+    private final Condition empty = lock.newCondition();
+    private final Condition full = lock.newCondition();
 
 
     void put() {
