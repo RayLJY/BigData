@@ -22,7 +22,7 @@ public class ReentrantReadWriteLockTest {
         tom.check();
         jerry.transfer(income);
         nemo.transfer(salary);
-        Thread.sleep(23000);
+        Thread.sleep(20000);
         System.out.println("Finally, the balance of Account(" + account.getId() + ") is " + account.getBalance());
     }
 }
@@ -51,7 +51,6 @@ class Account {
                 balance -= num;
                 System.out.println("\t\t\tSorry! Operation is failed!");
                 System.out.println("\t\t\tINFO: " + name + " revenue " + num);
-
             } else {
                 System.out.println("\t\t\tOK! Operation is successful!");
                 System.out.println("\t\t\tINFO: " + name + " revenue " + num);
@@ -71,18 +70,18 @@ class Account {
         return true;
     }
 
-    void getBalance(String name) {
-        rl.lock();
-        System.out.println("\t\t\t\t\t\t\t\t\t\t\tHi " + name + ", The balance of Account (" + id + ") is " + balance + " yuan!");
-        rl.unlock();
-    }
-
     int getBalance() {
         return balance;
     }
 
     long getId() {
         return id;
+    }
+
+    void getBalance(String name) {
+        rl.lock();
+        System.out.println("\t\t\t\t\t\t\t\t\t\t\tHi " + name + ", The balance of Account (" + id + ") is " + balance + " yuan!");
+        rl.unlock();
     }
 }
 
