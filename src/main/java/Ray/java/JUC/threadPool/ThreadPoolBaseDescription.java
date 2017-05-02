@@ -123,7 +123,7 @@ public class ThreadPoolBaseDescription {
      *
      *  class Executors
      * 0. public static ExecutorService newFixedThreadPool(int nThreads)
-     *    = new ThreadPoolExecutor(nThreads, nThreads,0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>())
+     *    = new ThreadPoolExecutor(nThreads, nThreads, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>())
      *
      * 1. public static ExecutorService newWorkStealingPool(int parallelism)
      *    = new ForkJoinPool(parallelism, ForkJoinPool.defaultForkJoinWorkerThreadFactory, null, true)
