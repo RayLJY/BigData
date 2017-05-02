@@ -75,6 +75,7 @@ public class ThreadPoolBaseDescription {
      *       (3). 尝试终止线程池.
      */
 
+
     /**
      * ThreadPool Status
      *    使用 final AtomicInteger ctl 表示"线程池中的任务数量"和"线程池状态"
@@ -109,4 +110,31 @@ public class ThreadPoolBaseDescription {
      *    (1). 在 TIDYING 状态时,执行完 terminated() 之后,就会由 TIDYING -> TERMINATED.
      */
 
+
+    /**
+     *  interface Executor
+     *  interface ExecutorService extends Executor
+     *  abstract class AbstractExecutorService implements ExecutorService
+     *  class ThreadPoolExecutor extends AbstractExecutorService
+     *
+     *  class DelegatedExecutorService extends AbstractExecutorService
+     *  class FinalizableDelegatedExecutorService extends DelegatedExecutorService
+     *
+     *
+     *  class Executors
+     * 0. public static ExecutorService newFixedThreadPool(int nThreads)
+     *    = new ThreadPoolExecutor(nThreads, nThreads,0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>())
+     *
+     * 1. public static ExecutorService newWorkStealingPool(int parallelism)
+     *    = new ForkJoinPool(parallelism, ForkJoinPool.defaultForkJoinWorkerThreadFactory, null, true)
+     *
+     * 2. public static ExecutorService newWorkStealingPool()
+     *    = new ForkJoinPool(Runtime.getRuntime().availableProcessors(), ForkJoinPool.defaultForkJoinWorkerThreadFactory, null, true)
+     *
+     * 3. public static ExecutorService newSingleThreadExecutor()
+     *    = new FinalizableDelegatedExecutorService(new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,new LinkedBlockingQueue<Runnable>()))
+     *
+     * 4. public static ExecutorService newCachedThreadPool()
+     *    = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>())
+     */
 }
