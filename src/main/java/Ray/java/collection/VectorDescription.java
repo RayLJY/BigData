@@ -1,4 +1,4 @@
-package Ray.java.collection.vector;
+package Ray.java.collection;
 
 import java.util.Enumeration;
 import java.util.Vector;
