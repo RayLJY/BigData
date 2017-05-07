@@ -46,7 +46,7 @@ public class LinkedListDescription {
      *        移除    removeFirst()  pollFirst()      removeLast()     pollLast()
      *        查看    getFirst()     peekFirst()      getLast()        peekLast()
      *
-     *        作为FIFO的队列时:
+     *        作为双端队列时:
      *            队列方法        等效方法
      *           add(e)        addLast(e)
      *           offer(e)      offerLast(e)
@@ -63,16 +63,92 @@ public class LinkedListDescription {
      */
 
     public static void main(String[] args) {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add("a");
-        linkedList.add(2,"b");
-        linkedList.addFirst("x");
-        linkedList.element(); // 返回首节点的值
-        linkedList.isEmpty();
-        linkedList.remove(); // 移除首节点
-        linkedList.remove(2);
-        linkedList.remove("a");
-        linkedList.set(2,"y");
-        linkedList.get(1);
+
+        LinkedList<String> list = new LinkedList<>();
+
+        list.add("a");
+        list.add("b");
+        list.add("d");
+        System.out.println("list: " + list);
+
+        list.add(3, "c");
+        System.out.println("list.add(3,\"c\"); " + list);
+
+        //list.add(7,"x"); // IndexOutOfBoundsException: Index: 7, Size: 4
+
+        list.addFirst("x");
+        System.out.println("list.addFirst(\"x\"); " + list);
+
+        list.set(2, "y"); // not recommend
+        System.out.println("list.set(2,\"y\"); " + list);
+
+        //获取第一个元素 失败抛出异常
+        System.out.println("list.get(0) " + list.get(0) + "\t" + list);
+        System.out.println("list.peek() " + list.peek() + "\t" + list);
+        System.out.println("list.peekFirst() " + list.peekFirst() + "\t" + list);
+        System.out.println("list.getFirst() " + list.getFirst() + "\t" + list);
+        System.out.println("list.element() " + list.element() + "\t" + list);
+
+
+        //删除第一个元素 失败抛出异常
+        System.out.println("list.removeFirst() " + list.removeFirst() + "\t" + list);
+        System.out.println("list.remove(); " + list.remove() + "\t" + list);
+        System.out.println("list.pollFirst(); " + list.pollFirst() + "\t" + list);
+        System.out.println("list.poll(); " + list.poll() + "\t" + list);
+        System.out.println("list.pop(); " + list.pop() + "\t" + list);
+
+
+        // 将LinkedList当作 LIFO 栈 (只允许在一端操作)
+        LinkedList<String> stack = new LinkedList<>();
+
+        // 将1,2,3,4添加到栈中
+        stack.push("1");
+        stack.push("2");
+        stack.push("3");
+        stack.push("4");
+
+        // 打印栈
+        System.out.println("stack: " + stack);
+
+        // 查看栈顶元素
+        System.out.println("stack.peek(): " + stack.peek() + "\t" + stack);
+        System.out.println("stack.peekFirst(): " + stack.peekFirst() + "\t" + stack);
+
+        // 取出栈顶元素
+        System.out.println("stack.pop(): " + stack.pop() + "\t" + stack);
+
+
+        // 将LinkedList当作 双端队列
+        LinkedList<String> deque = new LinkedList<>();
+
+        // 将10,20,30,40添加到队列 插入到队末
+        deque.add("10");
+        deque.add("20");
+        deque.add("30");
+        deque.offer("40");
+        deque.offerFirst("00");
+        deque.offerLast("50");
+
+        // 打印队列
+        System.out.println("queue: " + deque);
+
+        // 查看队首元素
+        System.out.println("queue.element(): " + deque.element() + "\t" + deque);
+        System.out.println("queue.peek(): " + deque.peek() + "\t" + deque);
+        System.out.println("queue.peekFirst(): " + deque.peekFirst() + "\t" + deque);
+
+        // 查看队尾元素
+        System.out.println("queue.peekLast(): " + deque.peekLast() + "\t" + deque);
+
+        // 取出队首元素
+        System.out.println("queue.poll(): " + deque.poll() + "\t" + deque);
+        System.out.println("queue.pollFirst(): " + deque.pollFirst() + "\t" + deque);
+
+        // 取出队尾元素
+        System.out.println("queue.pollLast(): " + deque.pollLast() + "\t" + deque);
+
+        // 删除队首元素
+        System.out.println("queue.remove(): " + deque.remove() + "\t" + deque);
+
     }
 }

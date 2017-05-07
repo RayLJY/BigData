@@ -41,7 +41,8 @@ public class ArrayListDescription {
      * 10. 通过迭代器遍历最快.
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+
         List<String> list = new ArrayList<>(3);
         list.add("a");
         list.add("v");
@@ -61,12 +62,46 @@ public class ArrayListDescription {
         //list.forEach(s -> System.out.println(s));
         list.forEach(System.out::println);
 
+        Iterator<String> i = list.iterator();
+        while (i.hasNext()) {
+            String ss = i.next();
+            System.out.println(ss);
+        }
+
+        // 获取第1个元素
+        System.out.println("the first element is: " + list.get(0));
+
+        // 获取ArrayList的大小
+        System.out.println("ArrayList size = : " + list.size());
+
+        // 判断list中是否包含"d"
+        System.out.println("ArrayList contains d is: " + list.contains("d"));
+
+        // 设置第2个元素为x
+        list.set(1, "x");
+        System.out.println("list.set(1, \"x\");\t" + list);
+
+        // 删除"v"
+        list.remove("x");
+        System.out.println("list.remove(\"x\");\t" + list);
+
+        // 清空ArrayList
+        list.clear();
+        System.out.println("list.clear();\t" + list);
+
+        // 判断ArrayList是否为空
+        System.out.println("ArrayList is empty: " + list.isEmpty());
 
         // show fail-fast behavior
-        Iterator<String> i = list.iterator();
+        Thread.sleep(100);
+        list.add("a");
+        list.add("v");
+        list.add("c");
+
+        Iterator<String> ite = list.iterator();
         try {
-            while (i.hasNext()) {
-                String ss = i.next();
+            while (ite.hasNext()) {
+                String ss = ite.next();
                 list.remove(ss);
                 System.out.println(ss);
             }

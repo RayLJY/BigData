@@ -22,7 +22,7 @@ public class StackDescription {
 
     public static void main(String[] args) {
 
-        Stack<String> stack = new Stack();
+        Stack<String> stack = new Stack<>();
         // 将0,1,2,3,4,5添加到栈中
         for (int i = 0; i < 6; i++) {
             stack.push(i + "");
