@@ -79,7 +79,7 @@ public class HashMapDescription {
      *           只有一个节点,则直接计算新数组下标,并负责给新数组中对应的i位置.
      *           有多个节点,将链表分为两组,一组赋值给新数组中对应的 i 位置,另一组赋值给新数组对应的 i+length 位置(看第3条).
      *        若 table[i] 是红黑树:
-     *           将树拆分为两个树,检查两个树的大小,若小于8,在将树转换成链表,分别赋值给新数组中对应的 i 和 i+length 位置.
+     *           将树拆分为两个树,检查两个树的大小,若小于6,在将树转换成链表,分别赋值给新数组中对应的 i 和 i+length 位置.
      *        给新数组赋值的过程和 put 方法相同.
      *     3.数组下标计算:
      *
@@ -108,6 +108,7 @@ public class HashMapDescription {
      *        (2). HashMap 线程不安全,在并发的环境中建议使用 ConcurrentHashMap,或者只进行查询操作.
      *
      * 8.  fail-fast behavior.
+     * 9.  key value 都可以为 null. key=null 时,固定的插入到 table[0] 位置,当多个 key=null 时,会覆盖已经存在的 key(=null) value.
      */
 
 
