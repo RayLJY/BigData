@@ -3,7 +3,6 @@ package Ray.java.thread;
 
 /**
  * Created by Ray on 17/4/24.
- * <p>
  * Create and run a thread instance.
  */
 public class CreateThread {

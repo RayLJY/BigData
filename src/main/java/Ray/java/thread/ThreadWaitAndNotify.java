@@ -2,7 +2,7 @@ package Ray.java.thread;
 
 /**
  * Created by Ray on 17/4/25.
- * what's happen when a thread call wait and notify(or notifyAll) methods.
+ * What's happen when a thread call wait and notify(or notifyAll) methods.
  */
 public class ThreadWaitAndNotify {
 

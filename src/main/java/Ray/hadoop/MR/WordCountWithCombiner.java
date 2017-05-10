@@ -14,8 +14,7 @@ import java.util.Iterator;
 
 /**
  * Created by Ray on 17/3/30.
- * <p>
- * word count by using combiner function
+ * Word count by using combiner function
  */
 public class WordCountWithCombiner extends Configured implements Tool {
 

@@ -26,7 +26,6 @@ import java.util.StringTokenizer;
 
 /**
  * Created by Ray on 17/4/10.
- * <p>
  * The readAndFindMedian function is wrong in {@link org.apache.hadoop.examples.WordMedian},
  * so I rewrite one.
  */

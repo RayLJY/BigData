@@ -19,7 +19,6 @@ import java.util.StringTokenizer;
 
 /**
  * Created by Ray on 17/4/1.
- * <p>
  * This class copy from {@link org.apache.hadoop.examples.SecondarySort}.
  */
 public class SecondarySortByInt extends Configured implements Tool {

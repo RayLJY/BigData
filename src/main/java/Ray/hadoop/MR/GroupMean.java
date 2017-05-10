@@ -23,7 +23,6 @@ import java.util.StringTokenizer;
 
 /**
  * Created by Ray on 17/4/8.
- * <p>
  * This Map/Reduce program can be used to calculate the mean in each group.
  * Use the first character of the word to group word into 26 groups.
  * Calculate the mean of word of length for each group.

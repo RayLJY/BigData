@@ -13,7 +13,6 @@ public class ConcurrentHashMapDescription {
 
     /**
      *
-     *
      *   ConcurrentHashMap 基于数组 + 单向链表 + 红黑树构建集合,
      *      采用 volatile关键字 + CAS函数 + synchronized代码块 来实现线程安全.
      *

@@ -20,7 +20,6 @@ import java.util.StringTokenizer;
 
 /**
  * Created by Ray on 17/4/1.
- * <p>
  * This class be used for secondary sort that is grouped by Int type
  * and sorted by character type.
  */

@@ -16,10 +16,9 @@ import java.util.Iterator;
 
 /**
  * Created by Ray on 17/3/30.
- * <p>
- * map chain
+ * Map chain. More than one Mapper/Reduce implementations in one job.
  */
-public class MapChain extends Configured implements Tool {
+public class MapReduceChain extends Configured implements Tool {
 
     public static class SplitMap extends MapReduceBase implements Mapper<LongWritable, Text, Text, LongWritable> {
         private static LongWritable one = new LongWritable(1L);
@@ -66,9 +65,9 @@ public class MapChain extends Configured implements Tool {
         Path output = new Path(args[1].trim());
 
         //job config 全局
-        JobConf conf = new JobConf(getConf(), MapChain.class);
+        JobConf conf = new JobConf(getConf(), MapReduceChain.class);
         conf.setJobName("map chain");
-        conf.setJarByClass(MapChain.class);
+        conf.setJarByClass(MapReduceChain.class);
 
         //拆分 map config
         JobConf splitMapConf = new JobConf(false);
@@ -108,7 +107,7 @@ public class MapChain extends Configured implements Tool {
             throw new Exception("args: input directory output directory");
         }
 
-        int exitCode = ToolRunner.run(new Configuration(), new MapChain(), args);
+        int exitCode = ToolRunner.run(new Configuration(), new MapReduceChain(), args);
 
         System.out.println("exit code :" + exitCode);
     }

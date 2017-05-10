@@ -25,8 +25,7 @@ import java.net.URI;
 
 /**
  * Created by Ray on 17/3/30.
- * <p>
- * total sort by number type
+ * Total sort by number type
  */
 public class MRSortByNum extends Configured implements Tool {
     public static final String REDUCES_PER_HOST = "mapreduce.sort.reducesperhost";

@@ -10,7 +10,6 @@ import java.io.IOException;
 
 /**
  * Created by Ray on 17/4/1.
- * <p>
  * This type be use for Secondary sort that is grouped by Int type and
  * sorted by characters type.
  */

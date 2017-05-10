@@ -14,8 +14,7 @@ import java.util.Iterator;
 
 /**
  * Created by Ray on 17/3/29.
- * <p>
- * word count example
+ * Sample Word count Usages.
  */
 public class WordCount extends Configured implements Tool {
 

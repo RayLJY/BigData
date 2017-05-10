@@ -26,7 +26,6 @@ import java.util.StringTokenizer;
 
 /**
  * Created by Ray on 17/4/8.
- * <p>
  * Copy from {@link org.apache.hadoop.examples.WordMean}.
  * I rewrite the readAndCalcMean function for many output files.
  * This Map function just can emit two keys, but that don't means

@@ -2,7 +2,6 @@ package Ray.java.thread;
 
 /**
  * Created by Ray on 17/4/24.
- * <p>
  * Some API of Thread class.
  */
 public class ThreadBase {

@@ -25,11 +25,10 @@ import java.net.URI;
 
 /**
  * Created by Ray on 17/3/30.
- * <p>
- * total sort by characters type
+ * Total sort by characters type.
  */
 public class MRSortByChar extends Configured implements Tool {
-    public static final String REDUCES_PER_HOST = "mapreduce.sort.reducesperhost";
+    private static final String REDUCES_PER_HOST = "mapreduce.sort.reducesperhost";
     private Job job = null;
 
     public int run(String[] args) throws Exception {
