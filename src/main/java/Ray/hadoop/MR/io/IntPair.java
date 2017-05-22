@@ -1,7 +1,6 @@
 package Ray.hadoop.MR.io;
 
 
-import org.apache.hadoop.examples.SecondarySort;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
 
@@ -11,7 +10,7 @@ import java.io.IOException;
 
 /**
  * Created by Ray on 17/4/1.
- * This class copy from {@link SecondarySort}.
+ * This class copy from {@linkplain org.apache.hadoop.examples.SecondarySort}.
  * Define a pair of integers that are writable.
  * They are serialized in a byte comparable format.
  */
