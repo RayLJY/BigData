@@ -106,8 +106,6 @@ public class ThreadWaitAndNotify {
  *    Tom is BLOCKED
  *
  *
- *
- *
  * wait 和 notify 等方法是基于对象的"同步锁"关联起来的.使用时必须基于同一把"锁","锁"在对象身上,而且,一个对象对应唯一的一把"锁".
  * 所以 wait 和 notify 等方法没有定义在 Thread 中,而是在 Object 中.
  *
