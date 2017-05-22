@@ -39,7 +39,6 @@ public class ArrayListDescription {
      *       当通过 Iterator.add/remove 改变 List(Iterator) 结构时,会同步维护 modCount 和 expectedModCount,
      *       iterator.next()方法会检查该 expectedModCount 与 modCount是否相等,不相等时,抛出 ConcurrentModificationException.
      * 10. 通过迭代器遍历最快.
-     * 
      */
 
     public static void main(String[] args) throws InterruptedException {
