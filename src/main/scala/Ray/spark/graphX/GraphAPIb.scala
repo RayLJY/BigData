@@ -61,14 +61,14 @@ object GraphAPIb {
     // def mask[VD2, ED2](other: Graph[VD2, ED2]): Graph[VD, ED]
     // def groupEdges(merge: (ED, ED) => ED): Graph[VD,ED]
 
-    // reverse 操作返回一个新的图，这个图的边的方向都是反转的。
-    // 因为反转操作没有修改顶点或者边的属性或者改变边的数量，所以我们可以在不移动或者复制数据的情况下有效地实现它.
+    // reverse 操作返回一个新的图,这个图的弧的方向都是反转的.
+    // 因为反转操作没有修改顶点或者边的属性或者改变弧(边)的数量,所以我们可以在不移动或者复制数据的情况下有效地实现它.
 
     val reverse = graph.reverse
     println("\nreverse : ")
     reverse.triplets.foreach(println)
 
-    // subgraph 操作,利用顶点和边的谓词(predicates),返回的图仅仅包含满足顶点谓词的顶点、满足边谓词的边
+    // subgraph 操作,利用顶点和边的谓词(predicates),返回的图仅仅包含满足顶点谓词的顶点、满足边谓词的边.
     // 以及满足顶点谓词的连接顶点(connect vertices).
     // 如果没有提供顶点或者边的谓词,subgraph 操作默认为true.
 
@@ -81,11 +81,11 @@ object GraphAPIb {
     validGraph.triplets.foreach(println)
 
 
-    // mask 操作,以另一个图(参数)中包含的顶点和边，构造该图的一个子图。
-    // 这个操作可以和subgraph操作相结合，基于另外一个相关图的特征去约束一个图。
+    // mask 操作,以另一个图(参数)中包含的顶点和边,构造该图的一个子图.
+    // 这个操作可以和 subgraph 操作相结合,基于另外一个相关图的特征去约束一个图.
 
-    // connectedComponents 计算每一个顶点的连通性，并返回一个包含所有连通顶点的图，包其中顶点的属值是设置为：连通顶点中ID值最小的值
-    val ccGraph = graph.connectedComponents() // No longer contains missing field
+    // connectedComponents 计算每一个顶点的连通性,并返回一个包含所有连通顶点的图,包其中顶点的属值是设置为:连通顶点中ID值最小的值
+    val ccGraph = graph.connectedComponents()
     // Restrict the answer to the valid subgraph
     val validCCGraph = ccGraph.mask(validGraph)
 
@@ -95,8 +95,8 @@ object GraphAPIb {
     println("\nvalidCCGraph : ")
     validCCGraph.triplets.foreach(println)
 
-    // groupEdges 操作合并多重图中的并行边(如顶点对之间重复的边)。
-    // 在大量的应用程序中，并行的边可以合并（它们的权重合并）为一条边从而降低图的大小。
+    // groupEdges 操作合并多重图中的并行边(如顶点之间重复的边).
+    // 在大量的应用程序中,并行的边可以合并(它们的权重合并)为一条边从而降低图的大小.
 
     // no example
 

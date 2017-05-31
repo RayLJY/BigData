@@ -1,8 +1,8 @@
 package Ray.spark.graphX
 
 import org.apache.log4j.{Level, Logger}
-import org.apache.spark.graphx.{Graph, VertexId}
 import org.apache.spark.graphx.util.GraphGenerators
+import org.apache.spark.graphx.{Graph, VertexId}
 import org.apache.spark.sql.SparkSession
 
 /**
@@ -90,7 +90,7 @@ object SSSP {
     *
     * Super step 2 : 消息合并完成以后,基于消息集合中的 triplet.dstId 值，构建一个新的顶点集合 newVertex,
     *                其中每个顶点的属性值即为 mergeMsg 函数的返回值(也是之后进行 join 时使用的 newDist).
-    *                然后基于 vprog：(id, dist, newDist) => math.min(dist, newDist) 函数,
+    *                然后基于 vprog:(id, dist, newDist) => math.min(dist, newDist) 函数,
     *                将原始图数据 和 newVertex 进行 joinVertices
     *                即,将 newVertex 中新的属性值 替换掉 原始图数据中的属性值.
     *

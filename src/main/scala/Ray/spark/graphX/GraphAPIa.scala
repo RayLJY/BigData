@@ -73,10 +73,10 @@ object GraphAPIa {
     // def mapEdges[ED2](map: Edge[ED] => ED2): Graph[VD, ED2]
     // def mapTriplets[ED2](map: EdgeTriplet[VD, ED] => ED2): Graph[VD, ED2]
 
-    // 每个操作都产生一个新的图，这个新的图包含通过用户自定义的map函数操作修改后的顶点或边的属性。
-    // 注意，每种情况下图结构都不受影响。这些操作的一个重要特征是它允许所得图形重用原有图形的结构索引(indices)
+    // 每个操作都产生一个新的图,这个新的图包含通过用户自定义的map函数操作修改后的顶点或边的属性.
+    // 注意,每种情况下图结构都不受影响.这些操作的一个重要特征是它允许所得图形重用原有图形的结构索引(indices).
 
-    // 下面的两类代码在逻辑上是等价的，但是第一个不保存结构索引，所以不会从GraphX系统优化中受益。
+    // 下面的两类代码在逻辑上是等价的,但是第一个不保存结构索引,所以不会从GraphX系统优化中受益.
     // 1
     val newVertices = graph.vertices.map { case (id, attr) => (id, mapUdf(id, attr)) }
     val newGraph1 = Graph(newVertices, graph.edges)

@@ -54,17 +54,17 @@ object GraphAPIc {
 
     // Join RDDs with the graph
 
-    // join 操作是针对顶点属性值的操作。将额外的属性合并到已有的图中,或者从一个图中取出顶点属性值加入到另外一个图中.
+    // join 操作是针对顶点属性值的操作.将额外的属性合并到已有的图中,或者从一个图中取出顶点属性值加入到另外一个图中.
 
     // def joinVertices[U](table: RDD[(VertexId, U)])(map: (VertexId, VD, U) => VD) : Graph[VD, ED]
     // def outerJoinVertices[U,VD2](table:RDD[(VertexId, U)])(map:(VertexId,VD,Option[U]) => VD2):Graph[VD2, ED]
 
-    // joinVertices 操作,将输入的 VertexRDD 和顶点相结合,返回一个新的带有顶点特征的图。
-    // 新的顶点特征是通过在连接顶点后,使用自定义的函数获得的。
-    // 在 VertexRDD 中没有被匹配的顶点，则保留其原始值。
-    // 对于给定的顶点，如果 VertexRDD 中有超过1个的匹配值，则仅仅使用其中的一个。
-    // 建议保证输入 VertexRDD 中, VertexId值的唯一性。
-    // 下面的方法也会预索引返回的值用以加快后续的join操作。
+    // joinVertices 操作,将输入的 VertexRDD 和顶点相结合,返回一个新的带有顶点特征的图.
+    // 新的顶点特征是通过在连接顶点后,使用自定义的函数的返回值.
+    // 在 VertexRDD 中没有被匹配的顶点,则保留其原始值.
+    // 对于给定的顶点,如果 VertexRDD 中有超过1个的匹配值,则仅仅使用其中的一个.
+    // 建议保证输入 VertexRDD 中, VertexId 值的唯一性.
+    // 下面的方法也会预留索引返回的值用以加快后续的join操作.
 
     val nonUnique: RDD[(VertexId, Double)] = sc.parallelize(Array((0L, 1.0), (0L, 1.0), (2L, 2.0)))
 
@@ -86,9 +86,9 @@ object GraphAPIc {
 
 
     // outerJoinVertices 操作
-    // 因为并不是所有顶点在 VertexRDD 中拥有匹配的值,自定义函数需要一个option类型。
+    // 因为并不是所有顶点在 VertexRDD 中拥有匹配的值,自定义函数需要一个option类型.
 
-    // 取ID大于4的顶点，并以该顶点的出度值为属性值
+    // 取ID大于4的顶点,并以该顶点的出度值为属性值
     val outDegrees: VertexRDD[Int] = graph.outDegrees.filter(_._1 > 4)
     val degreeGraph = graph.outerJoinVertices(outDegrees) { (id, oldAttr, outDegreesOpt) =>
       outDegreesOpt match {
